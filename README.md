@@ -1,10 +1,14 @@
 # 🧠 LLM Pipeline Visualizer
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-llm--pipeline--visualizer-10b981?style=for-the-badge&logo=vercel)](https://llm-pipeline-visualizer-eight.vercel.app/)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 [![React 19](https://img.shields.io/badge/React-19.3-06b6d4.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.3-8b5cf6.svg)](https://vitejs.dev/)
 [![Vitest](https://img.shields.io/badge/Tests-49%20Passed-10b981.svg)](https://vitest.dev/)
 [![ONNX Runtime Web](https://img.shields.io/badge/ONNX-WASM%20%2F%20WebGPU-38bdf8.svg)](https://huggingface.co/docs/transformers.js)
+
+> 🚀 **Live Interactive Web App**: [https://llm-pipeline-visualizer-eight.vercel.app/](https://llm-pipeline-visualizer-eight.vercel.app/)
 
 An interactive, phase-by-phase scientific learning tool designed to demystify how **Large Language Models (LLMs)** process text, transform vectors, compute multi-head self-attention, and autoregressively generate answers.
 
