@@ -1,0 +1,96 @@
+/* ============================================================
+   Badge Component — AI / GPT Cyber Theme
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-default);
+  background: rgba(15, 23, 42, 0.85);
+  color: var(--text-secondary);
+  line-height: 1.2;
+  user-select: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.badge--sm {
+  font-size: 10px;
+  padding: 2px 7px;
+  gap: 4px;
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+  flex-shrink: 0;
+  animation: neural-pulse 2s infinite ease-in-out;
+}
+
+/* ── Provenance Variants ── */
+.badge--real {
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.badge--derived {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.badge--illustrative {
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.12);
+}
+
+.badge--simulated {
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.badge--unavailable {
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+  background: rgba(11, 18, 33, 0.8);
+}
+
+/* ── Status Variants ── */
+.badge--active {
+  color: #34d399;
+  border-color: var(--primary);
+  background: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.badge--complete {
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.badge--idle {
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.badge--error {
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.12);
+}

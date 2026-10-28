@@ -1,0 +1,68 @@
+/* ============================================================
+   App Layout — Minimal, Phase-by-Phase Learning Experience
+   3-Column Editorial Grid: Left Stepper | Center Workspace | Right Inspector
+   ============================================================ */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--bg-app);
+}
+
+.app-main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* ── Center Column: Primary Learning Workspace ── */
+.app-workspace-column {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg-app);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* ── Responsive Behavior ── */
+@media (max-width: 1100px) {
+  :root {
+    --inspector-width: 280px;
+    --sidebar-width: 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-main-layout {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .phase-stepper-sidebar {
+    width: 100%;
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    max-height: 200px;
+  }
+
+  .phase-inspector-rail {
+    width: 100%;
+    min-width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .phase-workspace {
+    padding: var(--space-4);
+  }
+}

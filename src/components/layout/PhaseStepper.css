@@ -1,0 +1,196 @@
+/* ============================================================
+   PhaseStepper — Left Sidebar Component (AI / GPT Cyber Theme)
+   ============================================================ */
+
+.phase-stepper-sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: rgba(11, 17, 32, 0.7);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border-subtle);
+  padding: var(--space-5) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* ── Your Prompt Section ── */
+.stepper-prompt-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stepper-section-label {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.stepper-prompt-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-normal);
+}
+
+.stepper-prompt-card:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.15);
+}
+
+.stepper-prompt-text {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  word-break: break-word;
+  max-height: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.stepper-prompt-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stepper-prompt-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.stepper-prompt-edit-btn:hover {
+  color: var(--cyan);
+  background: var(--cyan-soft);
+  border-color: var(--cyan-border);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+}
+
+/* ── Stepper Navigation ── */
+.stepper-steps-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepper-steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stepper-step-item {
+  display: flex;
+}
+
+.stepper-step-btn {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.stepper-step-btn:hover:not(.stepper-step-btn--active) {
+  background: var(--bg-hover);
+  border-color: rgba(148, 163, 184, 0.12);
+  transform: translateX(2px);
+}
+
+.stepper-step-btn--active {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.16) 0%, rgba(6, 182, 212, 0.06) 100%);
+  border-color: var(--primary-border);
+  box-shadow: inset 2px 0 0 var(--primary), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.stepper-step-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  margin-top: 1px;
+  transition: all var(--transition-normal);
+}
+
+.stepper-step-btn--active .stepper-step-badge {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #070a12;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  animation: neural-pulse 2.5s infinite ease-in-out;
+}
+
+.stepper-step-btn--completed .stepper-step-badge {
+  border-color: var(--primary-border);
+  color: var(--primary);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.stepper-step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.stepper-step-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+  transition: color var(--transition-fast);
+}
+
+.stepper-step-btn--active .stepper-step-title {
+  color: #34d399;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.stepper-step-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,287 @@
+/* ============================================================
+   LLM Pipeline Visualizer — AI / GPT Cyber-Tech Theme
+   Sleek dark mode, neon accents, glassmorphism, dynamic animations
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Canvas & Glass Surfaces ── */
+  --bg-app: #070a12;
+  --bg-surface: rgba(15, 23, 42, 0.72);
+  --bg-surface-raised: rgba(24, 36, 62, 0.65);
+  --bg-surface-subtle: rgba(11, 18, 33, 0.75);
+  --bg-input: rgba(9, 14, 26, 0.85);
+  --bg-hover: rgba(30, 41, 69, 0.7);
+  --bg-selected: rgba(16, 185, 129, 0.12);
+
+  /* ── Cyber Borders ── */
+  --border-subtle: rgba(56, 189, 248, 0.12);
+  --border-default: rgba(148, 163, 184, 0.18);
+  --border-strong: rgba(56, 189, 248, 0.35);
+  --border-primary: rgba(16, 185, 129, 0.4);
+
+  /* ── Text Hierarchy ── */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-disabled: #475569;
+
+  /* ── Primary Neon Signal (OpenAI Emerald / Cyber Teal) ── */
+  --primary: #10b981;
+  --primary-hover: #059669;
+  --primary-active: #047857;
+  --primary-soft: rgba(16, 185, 129, 0.12);
+  --primary-border: rgba(16, 185, 129, 0.35);
+  --primary-glow: 0 0 16px rgba(16, 185, 129, 0.4);
+
+  /* ── High-Tech Accents ── */
+  --cyan: #06b6d4;
+  --cyan-soft: rgba(6, 182, 212, 0.12);
+  --cyan-border: rgba(6, 182, 212, 0.35);
+  --cyan-glow: 0 0 16px rgba(6, 182, 212, 0.4);
+
+  --indigo: #6366f1;
+  --indigo-soft: rgba(99, 102, 241, 0.12);
+  --indigo-border: rgba(99, 102, 241, 0.35);
+
+  --purple: #a855f7;
+  --purple-soft: rgba(168, 85, 247, 0.12);
+  --purple-border: rgba(168, 85, 247, 0.35);
+  --purple-glow: 0 0 16px rgba(168, 85, 247, 0.4);
+
+  --peach: #f43f5e;
+  --peach-soft: rgba(244, 63, 94, 0.14);
+  --peach-border: rgba(244, 63, 94, 0.4);
+  --peach-glow: 0 0 16px rgba(244, 63, 94, 0.4);
+
+  --amber: #f59e0b;
+  --amber-soft: rgba(245, 158, 11, 0.12);
+  --amber-border: rgba(245, 158, 11, 0.35);
+
+  --blue: #38bdf8;
+  --blue-soft: rgba(56, 189, 248, 0.12);
+  --blue-border: rgba(56, 189, 248, 0.35);
+
+  --red: #ef4444;
+  --red-soft: rgba(239, 68, 68, 0.12);
+  --red-border: rgba(239, 68, 68, 0.35);
+
+  /* ── Radii ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  /* ── Spacing ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* ── Typography ── */
+  --font-display: 'Space Grotesk', 'Outfit', sans-serif;
+  --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+
+  /* ── Layout Dimensions ── */
+  --topbar-height: 56px;
+  --bottombar-height: 60px;
+  --sidebar-width: 260px;
+  --inspector-width: 320px;
+
+  /* ── Transitions ── */
+  --transition-fast: 120ms ease;
+  --transition-normal: 220ms ease;
+  --transition-slow: 380ms ease;
+
+  /* ── Shadows & Glassmorphic Depths ── */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45), 0 0 1px rgba(56, 189, 248, 0.15);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 2px rgba(16, 185, 129, 0.2);
+  --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+/* ── CSS Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  background-color: var(--bg-app);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 60%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Focus Rings ── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: var(--primary-glow);
+}
+
+/* ── Cyber Scrollbars ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(7, 10, 18, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  box-shadow: var(--primary-glow);
+}
+
+/* ── Typography Utilities ── */
+.text-display {
+  font-family: var(--font-display);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: #ffffff;
+}
+
+/* ── Links ── */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: #34d399;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+/* ── Button Reset ── */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ============================================================
+   GLOBAL AI & CYBER KEYFRAME ANIMATIONS
+   ============================================================ */
+
+/* Soft breathing neural aura for active items */
+@keyframes neural-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 16px 2px rgba(16, 185, 129, 0.2);
+  }
+}
+
+/* Pulse glow for cyan highlights */
+@keyframes cyan-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 14px 2px rgba(6, 182, 212, 0.2);
+  }
+}
+
+/* Beam traveling animation along connecting arrows */
+@keyframes beam-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Floating animation for icons/chips */
+@keyframes cyber-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Radar sweep rotation */
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cursor blink */
+@keyframes cyber-blink {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 8px var(--primary);
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
